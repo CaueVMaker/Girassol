@@ -1,0 +1,143 @@
+/* Paleta e Estilos Gerais */
+body {
+    background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+    font-family: 'Nunito', sans-serif;
+    color: #5d4037;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.font-cute {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+}
+
+/* --- ESTRUTURA DO CARTÃO 3D (Centralizado) --- */
+
+.card-container {
+    width: 320px;
+    height: 460px;
+    perspective: 1500px;
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        width: 360px;
+        height: 500px;
+    }
+}
+
+.card-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado Aberto (Permanece no centro, sem deslocamento lateral) */
+.card-3d.open {
+    transform: rotateY(-180deg);
+}
+
+/* Faces do Cartão */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 8px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(93, 64, 55, 0.12) !important;
+}
+
+/* Estilo da Capa (Minimalista) */
+.card-front {
+    background: #fff9c4;
+    display: flex;
+}
+
+.card-front::after {
+    content: '';
+    position: absolute;
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+    border: 2px dashed #fbc02d;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+/* Botão da Capa */
+.btn-open-card {
+    background-color: #fbc02d;
+    color: #5d4037;
+    border: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.btn-open-card:hover {
+    background-color: #fdd835;
+    transform: scale(1.05);
+    color: #3e2723;
+}
+
+/* Estilo do Interior */
+.card-inside {
+    background: #ffffff;
+    transform: rotateY(180deg);
+    overflow: hidden;
+}
+
+/* Conteúdo */
+.sunflower-icon-large {
+    font-size: 6rem;
+}
+
+.sunflower-small {
+    font-size: 2.2rem;
+    display: inline-block;
+}
+
+.custom-phrase {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: #616161 !important;
+}
+
+.invitation-box {
+    background-color: #fffde7;
+    border: 2px dashed #ffee58;
+}
+
+/* Cronômetro */
+.timer-unit {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+}
+
+.timer-unit span {
+    color: #f57f17;
+}
+
+.tiny-text {
+    font-size: 0.7rem;
+}
+
+.footer-note {
+    font-size: 1.3rem;
+    color: #f57f17;
+}
+
+/* Animação Flutuante do Girassol */
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+}
